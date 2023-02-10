@@ -1,8 +1,11 @@
 Description
+
 Meet Again is a proof-of-concept progressive web app that lets you search for tech events in your city. At a glance you can see how many events are happening in a particular city and time-frame, the details of those events, and even what types of events are most common in an area.
 It's currently connected to a demo Google Calendar for demonstration purposes, so the events aren't up-to-date. But because it uses the Google Calendar API, in principle it could connect to a live events calendar.
 
+
 Key features
+
     • Filter events by city.
     • Show/hide event details.
     • Specify number of events shown on the page.
@@ -11,9 +14,14 @@ Key features
     • View a chart showing the number of upcoming events by city.
 
 Blueprint and Tech-stack
+
 Frontend:
+
 React, Tailwindcss, Recharts, Moment,
+
+
 Data and authentication:
+
 Axios, AWS Lambda, Google OAuth2, Google Calendar API
 
 Testing:
