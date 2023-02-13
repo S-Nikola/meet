@@ -1,7 +1,7 @@
 Description
 
-Meet Again is a proof-of-concept progressive web app that lets you search for tech events in your city. At a glance you can see how many events are happening in a particular city and time-frame, the details of those events, and even what types of events are most common in an area.
-It's currently connected to a demo Google Calendar for demonstration purposes, so the events aren't up-to-date. But because it uses the Google Calendar API, in principle it could connect to a live events calendar.
+Meet is a  web app that lets you search for tech events in your city. You can see how many events are happening in a particular city and time-frame, the details of those events, and what types of events are most common in an area.
+It's connected to Google Calendar for demonstration purposes, so the events aren't up-to-date.
 
 
 Key features
