@@ -3,8 +3,16 @@ import React, { Component } from "react";
 class NumberOfEvents extends Component {
      state =  { eventCount: 32 }
 
-    optionChanged = (event) => {
-      this.setState({eventCount: event.target.value});
+    // optionChanged = (event) => {
+    //   this.setState({eventCount: event.target.value});
+    // }
+
+    handleOptionChanged = (event)=> {
+      const optionChanged=event.target.value;
+        this.props.updateEvents(null, optionChanged);
+        this.setState({
+          eventCount: optionChanged
+        })
     }
 
     render() {
@@ -13,7 +21,7 @@ class NumberOfEvents extends Component {
             <select 
             className="select-number"
             value={this.state.eventCount}
-            onChange= { this.optionChanged } 
+            onChange= { this.handleOptionChanged } 
             
             >
               <option 

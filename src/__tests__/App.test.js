@@ -79,11 +79,12 @@ describe('<App /> integration', () => {
   test('Change the "eventCount state when the option is changed"', async ()=>{
     const AppWrapper = mount(<App />);
     const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
-    const optionNumber = NumberOfEventsWrapper.find('.option-64').prop('value');
-    NumberOfEventsWrapper.find('.select-number').simulate('change', {target: {value: optionNumber}});
+    expect(AppWrapper.state('eventCount')).toBe(AppWrapper.state('eventCount'));
+    const changedNumber = NumberOfEventsWrapper.find('.option-64').prop('value');
+    NumberOfEventsWrapper.find('.select-number').simulate('change', {target: {value: changedNumber}});
     await getEvents();
-    expect(AppWrapper.state('eventCount')).toBe(optionNumber);
-    expect(NumberOfEventsWrapper.state('eventCount')).toBe(optionNumber);
+    expect(NumberOfEventsWrapper.state('eventCount')).toBe(changedNumber);
+    expect(AppWrapper.state('eventCount')).toBe(changedNumber);
     AppWrapper.unmount();
   });
 });
