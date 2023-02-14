@@ -10,7 +10,7 @@ class App extends Component {
   state = {
     events: [],
     locations: [],
-    // numberOfEvents: 32
+    eventCount: 32
   }
   updateEvents = (location) => {
     getEvents().then((events) => {
@@ -40,7 +40,7 @@ class App extends Component {
     return (
       <div className="App">
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents}/>
-        <NumberOfEvents />
+        <NumberOfEvents eventCount={this.state.eventCount}/>
         <EventList events={this.state.events}/>
         
       </div>

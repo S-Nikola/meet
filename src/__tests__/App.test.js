@@ -67,4 +67,23 @@ describe('<App /> integration', () => {
     expect(AppWrapper.state('events')).toEqual(allEvents);
     AppWrapper.unmount();
   });
+
+  test('App passes "eventCount" state as a prop to NumberOfEvents', () => {
+    const AppWrapper = mount(<App />);
+    const AppEventcountState = AppWrapper.state('eventCount');
+    expect(AppEventcountState).not.toEqual(undefined);
+    expect(AppWrapper.find(NumberOfEvents).props().eventCount).toEqual(AppEventcountState);
+    AppWrapper.unmount();
+  });
+
+  test('Change the "eventCount state when the option is changed"', async ()=>{
+    const AppWrapper = mount(<App />);
+    const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+    const optionNumber = NumberOfEventsWrapper.find('.option-64').prop('value');
+    NumberOfEventsWrapper.find('.select-number').simulate('change', {target: {value: optionNumber}});
+    await getEvents();
+    expect(AppWrapper.state('eventCount')).toBe(optionNumber);
+    expect(NumberOfEventsWrapper.state('eventCount')).toBe(optionNumber);
+    AppWrapper.unmount();
+  });
 });

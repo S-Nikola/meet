@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
 class NumberOfEvents extends Component {
-     state =  { numberOfEvents: 32 }
+     state =  { eventCount: 32 }
 
     optionChanged = (event) => {
-      this.setState({numberOfEvents: event.target.value});
+      this.setState({eventCount: event.target.value});
     }
 
     render() {
@@ -12,13 +12,13 @@ class NumberOfEvents extends Component {
           <div className="NumberOfEvents">
             <select 
             className="select-number"
-            value={this.state.numberOfEvents}
+            value={this.state.eventCount}
             onChange= { this.optionChanged } 
             
             >
               <option 
               className="option-32"
-              value={this.state.numberOfEvents}
+              value={this.state.eventCount}
               >32</option>
               <option 
               className="option-64"
