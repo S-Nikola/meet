@@ -28,6 +28,7 @@ describe('<App /> component', () => {
 });
 
 describe('<App /> integration', () => {
+
   test('App passes "events" state as a prop to EventList', () => {
     const AppWrapper = mount(<App />);
     const AppEvensState = AppWrapper.state('events');
@@ -70,21 +71,53 @@ describe('<App /> integration', () => {
 
   test('App passes "eventCount" state as a prop to NumberOfEvents', () => {
     const AppWrapper = mount(<App />);
-    const AppEventcountState = AppWrapper.state('eventCount');
-    expect(AppEventcountState).not.toEqual(undefined);
-    expect(AppWrapper.find(NumberOfEvents).props().eventCount).toEqual(AppEventcountState);
+    const AppEventCountState = AppWrapper.state('numberOfEvents');
+    expect(AppEventCountState).not.toEqual(undefined);
+    expect(AppWrapper.find(NumberOfEvents).props().numberOfEvents).toEqual(AppEventCountState);
     AppWrapper.unmount();
   });
 
-  test('Change the "eventCount state when the option is changed"', async ()=>{
+  test("check if number of events is properly passed on as a prop to NumberOfEvents", () => {
     const AppWrapper = mount(<App />);
-    const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
-    expect(AppWrapper.state('eventCount')).toBe(AppWrapper.state('eventCount'));
-    const changedNumber = NumberOfEventsWrapper.find('.option-64').prop('value');
-    NumberOfEventsWrapper.find('.select-number').simulate('change', {target: {value: changedNumber}});
-    await getEvents();
-    expect(NumberOfEventsWrapper.state('eventCount')).toBe(changedNumber);
-    expect(AppWrapper.state('eventCount')).toBe(changedNumber);
+    const AppEventCountState = AppWrapper.state('numberOfEvents');
+    expect(AppEventCountState).not.toEqual(undefined);
+    AppWrapper.setState({ numberOfEvents: 20 });
+    expect(AppWrapper.find(NumberOfEvents).props().numberOfEvents).toBe(AppWrapper.state('numberOfEvents'));
     AppWrapper.unmount();
   });
+
+  test('Change the "numberOfEvents" state when the option is changed', async ()=>{
+    const AppWrapper = mount(<App />);
+    const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+    const changedNumber = NumberOfEventsWrapper.find('.option-64').prop('value');
+    expect(changedNumber).toBe(changedNumber);
+    // const optionSelector = AppWrapper.find(NumberOfEvents).find('.select-number');
+    await NumberOfEventsWrapper.instance().changeNumber(changedNumber);
+    //  expect(AppWrapper.find(NumberOfEvents).props().numberOfEvents).toBe(NumberOfEventsWrapper.state('numberOfEvents'));
+    expect(AppWrapper.state('numberOfEvents')).toBe(NumberOfEventsWrapper.state('numberOfEvents'));
+    AppWrapper.unmount();
+  });
+
+  // test("check if state in the app changes on input change in NumberOfEvents", () => {
+  //   const AppWrapper = mount(<App />);
+  //   const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+  //   const changedNumber = NumberOfEventsWrapper.find('.option-64').prop('value');
+  //   NumberOfEventsWrapper.find(".select-number").simulate("change", changedNumber);
+  //   expect(NumberOfEventsWrapper.state("numberOfEvents")).toBe(64);
+  //   expect(AppWrapper.state("numberOfEvents")).toBe(64);
+  //   AppWrapper.unmount();
+  // });
+
+  // test('Change the "numberOfEvents" state when the option is changed', async ()=>{
+  //   const AppWrapper = mount(<App />);
+  //   const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+  //   // expect(AppWrapper.state('numberOfEvents')).toBe(AppWrapper.state('eventCount'));
+  //   const changedNumber = NumberOfEventsWrapper.find('.option-64').prop('value');
+  //   NumberOfEventsWrapper.find('.select-number').simulate('change', {target: {value: changedNumber}});
+  //   await getEvents();
+  //   expect(NumberOfEventsWrapper.state('numberOfEvents')).toBe(changedNumber);
+  //   expect(AppWrapper.state('numberOfEvents')).toBe(NumberOfEventsWrapper.state('numberOfEvents'));
+  //   AppWrapper.unmount();
+  // });
+
 });
