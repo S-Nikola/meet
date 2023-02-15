@@ -32,18 +32,18 @@ class NumberOfEvents extends Component {
             
             >
               <option 
-              className="option-5"
+              className="option-20"
               value={this.state.numberOfEvents}
-              >5</option>
+              >20</option>
               <option 
-              className="option-10"
-              value={10}
-              >10</option>
+              className="option-30"
+              value={30}
+              >30</option>
 
               <option 
-              className="option-20"
-              value={20}
-              >20</option>
+              className="option-40"
+              value={40}
+              >40</option>
             </select>
 
           </div>

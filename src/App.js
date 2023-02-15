@@ -15,7 +15,7 @@ class App extends Component {
       events: [],
       locations:[],
       selectedLocation: 'all',
-      numberOfEvents: 5
+      numberOfEvents: 20
     }
     this.updateNumberOfEvents=this.updateNumberOfEvents.bind(this);
     this.updateEvents=this.updateEvents.bind(this);
@@ -53,14 +53,14 @@ class App extends Component {
   }
 
 /*Function that updates the state: events (needs to be reworked)*/
-  updateEvents = (location, inputNumber) => {
-    const {eventCount, selectedLocation} = this.state;
+  updateEvents = (location, optionNumber) => {
+    const {numberOfEvents, eventCount, selectedLocation} = this.state;
     if (location) {
       getEvents().then((events) => {
         const locationEvents = (location === 'all') ?
         events :
         events.filter((event) => event.location === location);
-        const eventsToShow=locationEvents.slice(0, eventCount);
+        const eventsToShow=locationEvents.slice(0, numberOfEvents);
         this.setState({
         events: eventsToShow,
         selectedLocation: location,
@@ -72,10 +72,10 @@ class App extends Component {
         const locationEvents = (selectedLocation === 'all') ?
         events :
         events.filter((event) => event.location === selectedLocation);
-        const eventsToShow=locationEvents.slice(0, inputNumber);
+        const eventsToShow=locationEvents.slice(0, optionNumber);
         this.setState({
           events: eventsToShow,
-          numberOfEvents: inputNumber
+          numberOfEvents: optionNumber
         });
       })
     }
@@ -101,7 +101,7 @@ class App extends Component {
     return (
       <div className="App">
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents}/>
-        <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateNumberOfEvents={this.updateNumberOfEvents} />
+        <NumberOfEvents numberOfEvents={this.state.numberOfEvents} /*updateNumberOfEvents={this.updateNumberOfEvents}*/ updateEvents={this.updateEvents}/>
         <EventList events={this.state.events}/>
         
       </div>
