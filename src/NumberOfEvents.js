@@ -9,7 +9,7 @@ class NumberOfEvents extends Component {
     };
   
     componentDidMount() {
-      this.setState({ numberOfEvents: this.props.numberOfEvents || 32 });
+      this.setState({ numberOfEvents: this.props.numberOfEvents || 5 });
     }  
 
     //-------OLD functions
@@ -35,18 +35,18 @@ class NumberOfEvents extends Component {
             
             >
               <option 
-              className="option-32"
+              className="option-5"
               value={this.state.numberOfEvents}
-              >32</option>
+              >5</option>
               <option 
-              className="option-64"
-              value={64}
-              >64</option>
+              className="option-10"
+              value={10}
+              >10</option>
 
               <option 
-              className="option-96"
-              value={96}
-              >96</option>
+              className="option-20"
+              value={20}
+              >20</option>
             </select>
 
           </div>

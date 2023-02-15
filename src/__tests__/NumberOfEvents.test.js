@@ -14,20 +14,20 @@ describe('<NumberOfEvents /> component', () => {
   });
 
   test('render number of events options', () => {
-    expect(NumberOfEventsWrapper.find('.option-32')).toHaveLength(1);
-    expect(NumberOfEventsWrapper.find('.option-64')).toHaveLength(1);
-    expect(NumberOfEventsWrapper.find('.option-96')).toHaveLength(1);
+    expect(NumberOfEventsWrapper.find('.option-5')).toHaveLength(1);
+    expect(NumberOfEventsWrapper.find('.option-10')).toHaveLength(1);
+    expect(NumberOfEventsWrapper.find('.option-20')).toHaveLength(1);
   });
 
   test('render default number correctly', () => {
     const defaultNumber = NumberOfEventsWrapper.state('numberOfEvents');
-    expect(NumberOfEventsWrapper.find('.option-32').prop('value')).toBe(defaultNumber);
+    expect(NumberOfEventsWrapper.find('.option-5').prop('value')).toBe(defaultNumber);
   });
 
   test('render number of events according to chosen option', () => {
     const defaultNumber = NumberOfEventsWrapper.state('numberOfEvents');
     expect(NumberOfEventsWrapper.state('numberOfEvents')).toBe(defaultNumber);
-    const changedNumber = NumberOfEventsWrapper.find('.option-64').prop('value');
+    const changedNumber = NumberOfEventsWrapper.find('.option-10').prop('value');
     NumberOfEventsWrapper.find('.select-number').simulate('change', changedNumber);
     expect(NumberOfEventsWrapper.state('numberOfEvents')).toBe(changedNumber);
   });

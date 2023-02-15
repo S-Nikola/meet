@@ -8,11 +8,22 @@ import { extractLocations, getEvents } from './api';
 
 class App extends Component {
 
-  state = {
-    events: [],
-    locations: [],
-    numberOfEvents: 32
+  constructor(props){
+    super(props);
+    this.state = {
+      events: [],
+      locations:[],
+      numberOfEvents: 5
+    }
+    this.updateNumberOfEvents=this.updateNumberOfEvents.bind(this);
+    this.updateEvents=this.updateEvents.bind(this);
   }
+
+  // state = {
+  //   events: [],
+  //   locations: [],
+  //   numberOfEvents: 64
+  // }
 
   //---------------OLD functions
   // updateEvents = (location) => {
