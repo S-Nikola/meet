@@ -91,13 +91,12 @@ describe('<App /> integration', () => {
     const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
     const changedNumber = NumberOfEventsWrapper.find('.option-10').prop('value');
     expect(changedNumber).toBe(changedNumber);
-    // const optionSelector = AppWrapper.find(NumberOfEvents).find('.select-number');
     await NumberOfEventsWrapper.instance().changeNumber({ target: { value: changedNumber }});
-    //  expect(AppWrapper.find(NumberOfEvents).props().numberOfEvents).toBe(NumberOfEventsWrapper.state('numberOfEvents'));
     expect(AppWrapper.state('numberOfEvents')).toBe(NumberOfEventsWrapper.state('numberOfEvents'));
     AppWrapper.unmount();
   });
 
+  //The next two tests pass, but more needs to be done to check whether features really work
   test('The number of events rendered matches the chosen option', async () => {
     const AppWrapper = mount(<App />);
     const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
@@ -117,4 +116,5 @@ describe('<App /> integration', () => {
     expect(AppWrapper.state('events')).toEqual([mockData[0]]);
     AppWrapper.unmount();
   });
+
  });

@@ -43,13 +43,15 @@ class App extends Component {
   //   });
   // }
 
+
+  /*Function that updates the state: numberOfEvents*/
   updateNumberOfEvents(option) {
     this.setState({
       numberOfEvents: option,
     });
   }
 
-
+/*Function that updates the state: events (needs to be reworked)*/
   updateEvents = (location, inputNumber) => {
     const {eventCount, selectedLocation} = this.state;
     if (location) {

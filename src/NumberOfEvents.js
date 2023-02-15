@@ -9,6 +9,7 @@ class NumberOfEvents extends Component {
     //   this.props.updateNumberOfEvents(value);
     // };
 
+    // Function that changes the state of events after an option(number) is selected
     changeNumber = (event)=> {
       const chosenOption = event.target.value;
       this.setState({ numberOfEvents: chosenOption });
