@@ -16,6 +16,7 @@ class Event extends Component {
     <div className="Event">
       <h2 className="summary">{ event.summary }</h2>
       <p className="location">{`Location: ${event.location}`}</p>
+      <p className="start">{`${event.start.dateTime}`}</p>
       <button 
         className="details-button"
         onClick={this.toggleDetails}

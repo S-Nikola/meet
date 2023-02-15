@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 
 class NumberOfEvents extends Component {
-     state =  { numberOfEvents: 32 }
+     state = { numberOfEvents: this.props.numberOfEvents}
 
     changeNumber = (value) => {
       this.setState({ numberOfEvents: value });
-      this.props.updateEvents(value);
+      this.props.updateNumberOfEvents(value);
     };
   
     componentDidMount() {

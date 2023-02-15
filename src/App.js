@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { PropTypes } from 'react'
 import './App.css';
 import './nprogress.css';
 import EventList from './EventList';
@@ -38,11 +37,11 @@ class App extends Component {
   //   });
   // }
 
-  // updateNumberOfEvents(number) {
-  //   this.setState({
-  //     numberOfEvents: number,
-  //   });
-  // }
+  updateNumberOfEvents(number) {
+    this.setState({
+      numberOfEvents: number,
+    });
+  }
 
 
   updateEvents = (location, inputNumber) => {
@@ -92,7 +91,7 @@ class App extends Component {
     return (
       <div className="App">
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents}/>
-        <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateEvents={this.updateEvents}/>
+        <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateNumberOfEvents={this.updateNumberOfEvents}/>
         <EventList events={this.state.events}/>
         
       </div>
