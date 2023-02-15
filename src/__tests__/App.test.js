@@ -31,9 +31,9 @@ describe('<App /> integration', () => {
 
   test('App passes "events" state as a prop to EventList', () => {
     const AppWrapper = mount(<App />);
-    const AppEvensState = AppWrapper.state('events');
-    expect(AppEvensState).not.toEqual(undefined);
-    expect(AppWrapper.find(EventList).props().events).toEqual(AppEvensState);
+    const AppEventsState = AppWrapper.state('events');
+    expect(AppEventsState).not.toEqual(undefined);
+    expect(AppWrapper.find(EventList).props().events).toEqual(AppEventsState);
     AppWrapper.unmount();
   });
 
@@ -107,7 +107,7 @@ describe('<App /> integration', () => {
     AppWrapper.unmount();
   });
 
-  test('The contenct of the event rendered matching the content of the mock API', async () => {
+  test('The content of the event rendered matching the content of the mock API', async () => {
     const AppWrapper = mount(<App />);
     const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
     const eventObject = { target: { value: 1 } };
