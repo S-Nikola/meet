@@ -53,7 +53,7 @@ export const getAccessToken = async () => {
       const results = await /*axios.get*/fetch(
         "https://gu5frrhod4.execute-api.eu-central-1.amazonaws.com/dev/api/get-auth-url"
       );
-      const { authUrl } = results.data;
+      const {authUrl}  = results.data;
       return (window.location.href = authUrl);
     }
     return code && getToken(code);

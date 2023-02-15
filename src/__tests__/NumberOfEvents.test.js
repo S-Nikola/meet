@@ -6,7 +6,7 @@ import { mockData } from '../mock-data';
 describe('<NumberOfEvents /> component', () => {
   let NumberOfEventsWrapper, numberOfEvents;
   beforeAll(() => {
-    NumberOfEventsWrapper = shallow(<NumberOfEvents updateNumberOfEvents={() => {}} />);
+    NumberOfEventsWrapper = shallow(<NumberOfEvents updateNumberOfEvents={() => {}} updateEvents={() => {}}/>);
   });
 
   test('render number of events selection', () => {
@@ -28,7 +28,7 @@ describe('<NumberOfEvents /> component', () => {
     const defaultNumber = NumberOfEventsWrapper.state('numberOfEvents');
     expect(NumberOfEventsWrapper.state('numberOfEvents')).toBe(defaultNumber);
     const changedNumber = NumberOfEventsWrapper.find('.option-10').prop('value');
-    NumberOfEventsWrapper.find('.select-number').simulate('change', changedNumber);
+    NumberOfEventsWrapper.find('.select-number').simulate('change', { target: { value: changedNumber }});
     expect(NumberOfEventsWrapper.state('numberOfEvents')).toBe(changedNumber);
   });
   

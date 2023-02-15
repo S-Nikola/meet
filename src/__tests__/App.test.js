@@ -92,9 +92,29 @@ describe('<App /> integration', () => {
     const changedNumber = NumberOfEventsWrapper.find('.option-10').prop('value');
     expect(changedNumber).toBe(changedNumber);
     // const optionSelector = AppWrapper.find(NumberOfEvents).find('.select-number');
-    await NumberOfEventsWrapper.instance().changeNumber(changedNumber);
+    await NumberOfEventsWrapper.instance().changeNumber({ target: { value: changedNumber }});
     //  expect(AppWrapper.find(NumberOfEvents).props().numberOfEvents).toBe(NumberOfEventsWrapper.state('numberOfEvents'));
     expect(AppWrapper.state('numberOfEvents')).toBe(NumberOfEventsWrapper.state('numberOfEvents'));
     AppWrapper.unmount();
   });
-});
+
+  test('The number of events rendered matches the chosen option', async () => {
+    const AppWrapper = mount(<App />);
+    const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+    const eventObject = NumberOfEventsWrapper.find('.option-10').prop('value');
+    await NumberOfEventsWrapper.instance().changeNumber({ target: { value: eventObject }});
+    await getEvents();
+    expect(AppWrapper.state('events')).toHaveLength(10);
+    AppWrapper.unmount();
+  });
+
+  test('The contenct of the event rendered matching the content of the mock API', async () => {
+    const AppWrapper = mount(<App />);
+    const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+    const eventObject = { target: { value: 1 } };
+    await NumberOfEventsWrapper.instance().changeNumber(eventObject);
+    await getEvents();
+    expect(AppWrapper.state('events')).toEqual([mockData[0]]);
+    AppWrapper.unmount();
+  });
+ });

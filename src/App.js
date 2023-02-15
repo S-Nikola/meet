@@ -13,17 +13,12 @@ class App extends Component {
     this.state = {
       events: [],
       locations:[],
+      selectedLocation: 'all',
       numberOfEvents: 5
     }
     this.updateNumberOfEvents=this.updateNumberOfEvents.bind(this);
     this.updateEvents=this.updateEvents.bind(this);
   }
-
-  // state = {
-  //   events: [],
-  //   locations: [],
-  //   numberOfEvents: 64
-  // }
 
   //---------------OLD functions
   // updateEvents = (location) => {
@@ -48,9 +43,9 @@ class App extends Component {
   //   });
   // }
 
-  updateNumberOfEvents(number) {
+  updateNumberOfEvents(option) {
     this.setState({
-      numberOfEvents: number,
+      numberOfEvents: option,
     });
   }
 
@@ -65,7 +60,8 @@ class App extends Component {
         const eventsToShow=locationEvents.slice(0, eventCount);
         this.setState({
         events: eventsToShow,
-        selectedLocation: location
+        selectedLocation: location,
+        numberOfEvents: this.state.numberOfEvents
         });
       });  
     } else {
@@ -76,7 +72,7 @@ class App extends Component {
         const eventsToShow=locationEvents.slice(0, inputNumber);
         this.setState({
           events: eventsToShow,
-          eventCount: inputNumber
+          numberOfEvents: inputNumber
         });
       })
     }
@@ -102,7 +98,7 @@ class App extends Component {
     return (
       <div className="App">
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents}/>
-        <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateNumberOfEvents={this.updateNumberOfEvents}/>
+        <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateNumberOfEvents={this.updateNumberOfEvents} />
         <EventList events={this.state.events}/>
         
       </div>
