@@ -21,7 +21,7 @@ class App extends Component {
     this.updateEvents=this.updateEvents.bind(this);
   }
 
-  //---------------OLD functions
+  //--------------OLD functions
   // updateEvents = (location) => {
   //   getEvents().then((events) => {
   //     const locationEvents = (location === 'all') ?
@@ -101,7 +101,7 @@ class App extends Component {
     return (
       <div className="App">
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents}/>
-        <NumberOfEvents numberOfEvents={this.state.numberOfEvents} /*updateNumberOfEvents={this.updateNumberOfEvents}*/ updateEvents={this.updateEvents}/>
+        <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateNumberOfEvents={this.updateNumberOfEvents} updateEvents={this.updateEvents}/>
         <EventList events={this.state.events}/>
         
       </div>

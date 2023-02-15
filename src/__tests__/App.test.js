@@ -97,16 +97,39 @@ describe('<App /> integration', () => {
   });
 
   //The next two tests pass, but more needs to be done to check whether features really work
+
+
+  // test("check if state of events is properly passed on as a prop to EventList", () => {
+  //   const AppWrapper = mount(<App />);
+  //   const EventListWrapper = AppWrapper.find(EventList);
+  //   const AppEventCountState = AppWrapper.state('events');
+  //   expect(AppEventCountState).not.toEqual(undefined);
+  //   AppWrapper.setState({ events: 10 });
+  //   expect(AppWrapper.find(EventList).props().events).toBe(AppWrapper.state('events'));
+  //   AppWrapper.unmount();
+  // });
+
   test('The number of events rendered matches the chosen option', async () => {
     const AppWrapper = mount(<App />);
     const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
     const eventObject = NumberOfEventsWrapper.find('.option-30').prop('value');
     await NumberOfEventsWrapper.instance().changeNumber({ target: { value: eventObject }});
-    await getEvents();
-    console.log(AppWrapper.state('events').length)
-    // expect(AppWrapper.state('events')).toHaveLength(30);
+    const eventsToShow = await getEvents();
+    expect(AppWrapper.state('events')).toHaveLength(eventsToShow.length);
     AppWrapper.unmount();
   });
+
+  // OLDER VERSION of test above
+  // test('The number of events rendered matches the chosen option', async () => {
+  //   const AppWrapper = mount(<App />);
+  //   const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+  //   const eventObject = NumberOfEventsWrapper.find('.option-30').prop('value');
+  //   await NumberOfEventsWrapper.instance().changeNumber({ target: { value: eventObject }});
+  //   await getEvents();
+  //   console.log(AppWrapper.state('events').length)
+  //   // expect(AppWrapper.state('events')).toHaveLength(30);
+  //   AppWrapper.unmount();
+  // });
 
   test('The content of the event rendered matching the content of the mock API', async () => {
     const AppWrapper = mount(<App />);
