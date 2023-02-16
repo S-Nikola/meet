@@ -54,7 +54,7 @@ class App extends Component {
 
 /*Function that updates the state: events (needs to be reworked)*/
   updateEvents = (location, optionNumber) => {
-    const {numberOfEvents, eventCount, selectedLocation} = this.state;
+    const {numberOfEvents, selectedLocation} = this.state;
     if (location) {
       getEvents().then((events) => {
         const locationEvents = (location === 'all') ?
