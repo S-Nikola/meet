@@ -128,8 +128,9 @@ input[type="text"] /*, input[type="number"]  */ {
 }
 
 .Alert {
-  position: fixed;
-  top: 20px;
+    display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .data-vis-wrapper {
