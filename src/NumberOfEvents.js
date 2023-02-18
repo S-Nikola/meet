@@ -49,7 +49,7 @@ class NumberOfEvents extends Component {
               value={40}
               >40</option>
             </select>
-            <WarningAlert text={this.state.infoText} />
+            <WarningAlert text={this.state.infoText} id="warning-alert"/>
           </div>
         );
       }

@@ -8,7 +8,7 @@ export const extractLocations = (events) => {
     return locations;
   };
 
-  const checkToken = async (accessToken) => {
+  export const checkToken = async (accessToken) => {
     const result = await fetch(
       `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
     )
@@ -21,12 +21,19 @@ export const extractLocations = (events) => {
 export const getEvents = async () => {
   NProgress.start();
 
+  // If running locally, use mock data
   if (window.location.href.startsWith('http://localhost')) {
     NProgress.done();
     return mockData;
   }
+  // If offline, get events from local storage
+  if (!navigator.onLine) {
+    const data = localStorage.getItem("lastEvents");
+    NProgress.done();
+    return data?JSON.parse(data).events:[];
+  }
   const token = await getAccessToken();
-
+  // If there's a token, get the events from the API
   if (token) {
     removeQuery();
     const url = 'https://gu5frrhod4.execute-api.eu-central-1.amazonaws.com/dev/api/get-events' + '/' + token;
@@ -39,6 +46,7 @@ export const getEvents = async () => {
     NProgress.done();
     return result.data.events;
   }
+  
 };
 
 export const getAccessToken = async () => {
