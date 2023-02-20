@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 class NumberOfEvents extends Component {
-     state = { numberOfEvents: this.props.numberOfEvents || 20}
+     state = { numberOfEvents: this.props.numberOfEvents || 5}
 
   
     // changeNumber = (value) => {
@@ -32,18 +32,18 @@ class NumberOfEvents extends Component {
             
             >
               <option 
+              className="option-5"
+              value={5}
+              >5</option>
+              <option 
+              className="option-10"
+              value={10}
+              >10</option>
+
+              <option 
               className="option-20"
               value={20}
               >20</option>
-              <option 
-              className="option-30"
-              value={30}
-              >30</option>
-
-              <option 
-              className="option-40"
-              value={40}
-              >40</option>
             </select>
 
           </div>

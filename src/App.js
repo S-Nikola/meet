@@ -15,35 +15,11 @@ class App extends Component {
       events: [],
       locations:[],
       selectedLocation: 'all',
-      numberOfEvents: 20
+      numberOfEvents: 5
     }
     this.updateNumberOfEvents=this.updateNumberOfEvents.bind(this);
     this.updateEvents=this.updateEvents.bind(this);
   }
-
-  //--------------OLD functions
-  // updateEvents = (location) => {
-  //   getEvents().then((events) => {
-  //     const locationEvents = (location === 'all') ?
-  //     events :
-  //     events.filter((event) => event.location === location);
-  //     this.setState({
-  //       events: locationEvents
-  //     });
-  //   });
-  // }
-
-  // updateEvents = (location, eventCount) => {
-  //   getEvents().then((events) => {
-  //     const locationEvents = (location === 'all') ?
-  //     events :
-  //     events.filter((event) => event.location === location);
-  //     this.setState({
-  //       events: locationEvents.slice(0, this.state.numberOfEvents)
-  //     });
-  //   });
-  // }
-
 
   /*Function that updates the state: numberOfEvents*/
   updateNumberOfEvents(option) {
