@@ -17,16 +17,16 @@ class App extends Component {
       selectedLocation: 'all',
       numberOfEvents: 5
     }
-    this.updateNumberOfEvents=this.updateNumberOfEvents.bind(this);
+    // this.updateNumberOfEvents=this.updateNumberOfEvents.bind(this);
     this.updateEvents=this.updateEvents.bind(this);
   }
 
   /*Function that updates the state: numberOfEvents*/
-  updateNumberOfEvents(option) {
-    this.setState({
-      numberOfEvents: option,
-    });
-  }
+  // updateNumberOfEvents(option) {
+  //   this.setState({
+  //     numberOfEvents: option,
+  //   });
+  // }
 
 /*Function that updates the state: events (needs to be reworked)*/
   updateEvents = (location, optionNumber) => {

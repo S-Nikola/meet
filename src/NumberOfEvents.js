@@ -13,7 +13,7 @@ class NumberOfEvents extends Component {
     changeNumber = (event)=> {
       const chosenOption = event.target.value;
       this.setState({ numberOfEvents: chosenOption });
-      this.props.updateNumberOfEvents(chosenOption);
+      this.props.updateEvents(null, chosenOption);
     }
     
   
