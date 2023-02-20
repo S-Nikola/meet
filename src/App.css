@@ -39,6 +39,7 @@ input[type="text"] /*, input[type="number"]  */ {
   align-self: center;
   height: 38px;
   text-align: center;
+  position: absolute;
 }
 
 .city {
@@ -61,7 +62,7 @@ input[type="text"] /*, input[type="number"]  */ {
   z-index: 1;
   align-self: center;
   margin: 0;
-  top: 50px;
+  top: 38px;
   font-size: 14px;
   box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
 }
@@ -80,6 +81,11 @@ input[type="text"] /*, input[type="number"]  */ {
 
 .suggestions > li:hover {
   background-color: #bcdcdb;
+}
+
+.select-number{
+  position: relative;
+  top: 14px;
 }
 
 .Event {
@@ -135,9 +141,10 @@ input[type="text"] /*, input[type="number"]  */ {
 }
 
 .Alert {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  position: relative;
+  top: -30px;
+  right: 46px;
+  white-space: nowrap;
   font-size: 14px;
 }
 
