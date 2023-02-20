@@ -21,42 +21,19 @@ class App extends Component {
       numberOfEvents: 5,
       showWelcomeScreen: undefined
     }
-    this.updateNumberOfEvents=this.updateNumberOfEvents.bind(this);
+    // this.updateNumberOfEvents=this.updateNumberOfEvents.bind(this);
     this.updateEvents=this.updateEvents.bind(this);
   }
 
-  //--------------OLD functions
-  // updateEvents = (location) => {
-  //   getEvents().then((events) => {
-  //     const locationEvents = (location === 'all') ?
-  //     events :
-  //     events.filter((event) => event.location === location);
-  //     this.setState({
-  //       events: locationEvents
-  //     });
-  //   });
-  // }
-
-  // updateEvents = (location, eventCount) => {
-  //   getEvents().then((events) => {
-  //     const locationEvents = (location === 'all') ?
-  //     events :
-  //     events.filter((event) => event.location === location);
-  //     this.setState({
-  //       events: locationEvents.slice(0, this.state.numberOfEvents)
-  //     });
-  //   });
-  // }
-
 
   /*Function that updates the state: numberOfEvents*/
-  updateNumberOfEvents(option) {
-    this.setState({
-      numberOfEvents: option,
-    });
-  }
+  // updateNumberOfEvents(option) {
+  //   this.setState({
+  //     numberOfEvents: option,
+  //   });
+  // }
 
-/*Function that updates the state: events (needs to be reworked)*/
+/*Function that updates the state: events*/
   updateEvents = (location, optionNumber) => {
     const {numberOfEvents, selectedLocation} = this.state;
     if (location) {
@@ -116,7 +93,7 @@ class App extends Component {
         <h1 className='text-6xl font-extrabold m-4'>Meet App</h1>
         <div className='search-events'>
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents}/>
-        <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateNumberOfEvents={this.updateNumberOfEvents} updateEvents={this.updateEvents}/>
+        <NumberOfEvents numberOfEvents={this.state.numberOfEvents} /*updateNumberOfEvents={this.updateNumberOfEvents}*/ updateEvents={this.updateEvents}/>
         </div>
         <EventList events={this.state.events}/>
         <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken() }} />

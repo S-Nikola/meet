@@ -2,30 +2,27 @@ import React, { Component } from "react";
 import { WarningAlert } from './Alert';
 
 class NumberOfEvents extends Component {
-     state = { numberOfEvents: this.props.numberOfEvents || 5}
+     state = { numberOfEvents: this.props.numberOfEvents || 5 }
 
     // Function that changes the state of events after an option(number) is selected
     changeNumber = (event)=> {
       const chosenOption = event.target.value;
+      this.setState({ numberOfEvents: chosenOption })
+      this.props.updateEvents(null, chosenOption);
      if (chosenOption > 5) {
       this.setState({
         infoText: 'You want more than 5? Ok, if you say so. Here you go, enjoy!',
-        numberOfEvents: chosenOption,
+        // numberOfEvents: chosenOption,
       });
     } else {
       return this.setState({
-        numberOfEvents: chosenOption,
+        // numberOfEvents: chosenOption,
         infoText:''
       });
     }
-    this.props.updateNumberOfEvents(chosenOption);
+    
     }
   
-    // componentDidMount() {
-    //   this.setState({ numberOfEvents: this.props.numberOfEvents });
-    // }  
-
-
     render() {
         return (
           <div className="NumberOfEvents">
