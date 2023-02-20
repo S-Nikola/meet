@@ -18,7 +18,7 @@ class App extends Component {
       events: [],
       locations:[],
       selectedLocation: 'all',
-      numberOfEvents: 20,
+      numberOfEvents: 5,
       showWelcomeScreen: undefined
     }
     this.updateNumberOfEvents=this.updateNumberOfEvents.bind(this);

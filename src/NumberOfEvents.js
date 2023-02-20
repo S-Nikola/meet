@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import { WarningAlert } from './Alert';
 
 class NumberOfEvents extends Component {
-     state = { numberOfEvents: this.props.numberOfEvents || 20}
+     state = { numberOfEvents: this.props.numberOfEvents || 5}
 
     // Function that changes the state of events after an option(number) is selected
     changeNumber = (event)=> {
       const chosenOption = event.target.value;
-     if (chosenOption > 20) {
+     if (chosenOption > 5) {
       this.setState({
-        infoText: 'You want more than 20? Ok, if you say so. Here you go, enjoy!',
+        infoText: 'You want more than 5? Ok, if you say so. Here you go, enjoy!',
         numberOfEvents: chosenOption,
       });
     } else {
@@ -36,18 +36,18 @@ class NumberOfEvents extends Component {
             
             >
               <option 
+              className="option-5"
+              value={5}
+              >5</option>
+              <option 
+              className="option-10"
+              value={10}
+              >10</option>
+
+              <option 
               className="option-20"
               value={20}
               >20</option>
-              <option 
-              className="option-30"
-              value={30}
-              >30</option>
-
-              <option 
-              className="option-40"
-              value={40}
-              >40</option>
             </select>
             <WarningAlert text={this.state.infoText} id="warning-alert"/>
           </div>
