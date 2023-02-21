@@ -86,6 +86,7 @@ input[type="text"] /*, input[type="number"]  */ {
 .select-number{
   position: relative;
   top: 14px;
+  margin-top: 10px;
 }
 
 .Event {
