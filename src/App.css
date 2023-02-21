@@ -2,17 +2,25 @@
 .App {
   text-align: center;
   padding: 2% 5%;
+  background: #0a4070;
 }
 
 .App * {
   box-sizing: border-box;
+}
+h1, h4 {
+  color: azure;
 }
 
 ul {
   padding: 0;
   list-style: none;
 }
-
+.EventList{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
 p {
   margin: 5px 0;
 }
@@ -96,6 +104,11 @@ input[type="text"] /*, input[type="number"]  */ {
   border: 1px solid #0d0d0d;
   border-radius: 4px;
   position: relative;
+  width: auto;
+  height: auto;
+  min-height: auto;
+  margin: 0;
+  background-color: azure;
 }
 
 .details-button {
@@ -153,6 +166,7 @@ input[type="text"] /*, input[type="number"]  */ {
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 50px;
 }
 .data-vis-wrapper .recharts-responsive-container {
   min-width: 100%;
@@ -172,4 +186,23 @@ input[type="text"] /*, input[type="number"]  */ {
     min-width: auto;
     margin: 0 auto;
   }
+}
+@media all and (max-width: 500px) {
+  .ul {
+    grid-template-columns: 1fr;
+  }
+}
+@media all and (min-width: 500px) and (max-width: 750px){
+  .ul {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media all and (max-width: 750px) {
+  .ul {
+    grid-gap: 10px;
+  }
+  /* .Event:last-child {
+    grid-column: auto / auto;
+    grid-row: auto / auto;
+  } */
 }
