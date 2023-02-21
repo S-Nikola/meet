@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { WarningAlert } from './Alert';
+// import { WarningAlert } from './Alert';
 
 class NumberOfEvents extends Component {
      state = { numberOfEvents: this.props.numberOfEvents || 5 }
@@ -9,17 +9,17 @@ class NumberOfEvents extends Component {
       const chosenOption = event.target.value;
       this.setState({ numberOfEvents: chosenOption })
       this.props.updateEvents(null, chosenOption);
-     if (chosenOption > 5) {
-      this.setState({
-        infoText: 'You want more than 5? Ok, if you say so. Here you go, enjoy!',
-        // numberOfEvents: chosenOption,
-      });
-    } else {
-      return this.setState({
-        // numberOfEvents: chosenOption,
-        infoText:''
-      });
-    }
+    //  if (chosenOption > 5) {
+    //   this.setState({
+    //     infoText: 'You want more than 5? Ok, if you say so. Here you go, enjoy!',
+    //     // numberOfEvents: chosenOption,
+    //   });
+    // } else {
+    //   return this.setState({
+    //     // numberOfEvents: chosenOption,
+    //     infoText:''
+    //   });
+    // }
     
     }
   
@@ -46,7 +46,7 @@ class NumberOfEvents extends Component {
               value={20}
               >20</option>
             </select>
-            <WarningAlert text={this.state.infoText} id="warning-alert"/>
+            {/* <WarningAlert text={this.state.infoText} id="warning-alert"/> */}
           </div>
         );
       }
