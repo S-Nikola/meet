@@ -8,7 +8,10 @@
 .App * {
   box-sizing: border-box;
 }
-h1, h4 {
+.App > h1 {
+  color: azure;
+}
+.App > h4 {
   color: azure;
 }
 
