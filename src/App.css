@@ -190,22 +190,22 @@ input[type="text"] /*, input[type="number"]  */ {
     margin: 0 auto;
   }
 }
-@media all and (max-width: 500px) {
-  .ul {
+@media all and (max-width: 600px) {
+  .EventList {
     grid-template-columns: 1fr;
   }
 }
 @media all and (min-width: 500px) and (max-width: 750px){
-  .ul {
+  .EventList {
     grid-template-columns: 1fr 1fr;
   }
 }
 @media all and (max-width: 750px) {
-  .ul {
+  /* .EventList {
     grid-gap: 10px;
-  }
-  /* .Event:last-child {
+  } */
+  .Event:last-child {
     grid-column: auto / auto;
     grid-row: auto / auto;
-  } */
+  }
 }
