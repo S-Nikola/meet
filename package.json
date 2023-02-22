@@ -60,5 +60,10 @@
     "gh-pages": "^5.0.0",
     "jest-cucumber": "^3.0.1",
     "puppeteer": "^19.7.1"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "/node_modules/(?!(axios|react-day-picker)/)"
+    ]
   }
 }
