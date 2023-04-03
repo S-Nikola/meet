@@ -8,19 +8,7 @@ class NumberOfEvents extends Component {
     changeNumber = (event)=> {
       const chosenOption = event.target.value;
       this.setState({ numberOfEvents: chosenOption })
-      this.props.updateEvents(null, chosenOption);
-    //  if (chosenOption > 5) {
-    //   this.setState({
-    //     infoText: 'You want more than 5? Ok, if you say so. Here you go, enjoy!',
-    //     // numberOfEvents: chosenOption,
-    //   });
-    // } else {
-    //   return this.setState({
-    //     // numberOfEvents: chosenOption,
-    //     infoText:''
-    //   });
-    // }
-    
+      this.props.updateEvents(null, chosenOption); 
     }
   
     render() {

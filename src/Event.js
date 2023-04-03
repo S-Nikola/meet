@@ -20,7 +20,7 @@ class Event extends Component {
       <button 
         className="details-button"
         onClick={this.toggleDetails}
-      >{ collapsed ? 'Show' : 'Hide' }Details
+      >{ collapsed ? 'Show' : 'Hide' } Details
       </button>
       {!collapsed && (
         <div className="details">

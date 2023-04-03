@@ -4,8 +4,13 @@ import './WelcomeScreen.css';
 function WelcomeScreen(props) {
   return props.showWelcomeScreen ? (
     <div className="WelcomeScreen">
-      <h1>Welcome to the Meet App</h1>
-      <h4> Log in to see upcoming events around the world for full-stack developers</h4>
+      <div className="WelcomeBox">
+        <h1>Welcome to the Meet App</h1>
+      <h3> Log in to see upcoming events around the world for full-stack developers</h3>
+      <p>After pressing the button bellow, there will be a warning saying the app is unsafe. This is due to it not being verified by Google.
+        The app is a demo and intended as a student project. The required calendar permission is only to access the app, it does not actually
+        result in use of user data in any way.
+      </p>
       <div className="button_cont" align="center">
         <div className="google-btn">
           <div className="google-icon-wrapper">
@@ -29,6 +34,7 @@ function WelcomeScreen(props) {
       >
         Privacy policy
       </a>
+      </div>
     </div>
   )
   : null

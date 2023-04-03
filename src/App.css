@@ -1,18 +1,14 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:500);
+@import url(https://fonts.googleapis.com/css?family=Dosis:400);
 .App {
   text-align: center;
   padding: 2% 5%;
   background: #0a4070;
+  color: #eaeaf1;
+  font-family: 'Dosis', sans-serif;
 }
 
 .App * {
   box-sizing: border-box;
-}
-.App > h1 {
-  color: azure;
-}
-.App > h4 {
-  color: azure;
 }
 
 ul {
@@ -40,7 +36,7 @@ p {
   display: block;
 }
 
-input[type="text"] /*, input[type="number"]  */ {
+input[type="text"] {
   padding: 8px 6px 8px 10px;
   border-radius: 4px;
   outline: none;
@@ -81,7 +77,8 @@ input[type="text"] /*, input[type="number"]  */ {
 .suggestions > li {
   text-align: left;
   padding: 8px 6px 8px 10px;
-  background-color: #eee;
+  background-color: #eaeaf1;
+  color: #0a4070;
   cursor: default;
 }
 
@@ -91,7 +88,8 @@ input[type="text"] /*, input[type="number"]  */ {
 }
 
 .suggestions > li:hover {
-  background-color: #bcdcdb;
+  background-color: #007eb4;
+  color: #eaeaf1;
 }
 
 .select-number{
@@ -101,22 +99,22 @@ input[type="text"] /*, input[type="number"]  */ {
 }
 
 .Event {
-  padding: 10px 10px 35px;
-  margin-bottom: 10px;
-  text-align: left;
-  border: 1px solid #0d0d0d;
-  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  background-color: #eaeaf1;
+  color: #0a4070;
+  padding: 30px;
+  border-radius: 15px;
+  min-height: 250px;
+  box-shadow: 0 0 20px 0 rgba(168, 165, 199, 0.2), 0 5px 5px 0 rgba(150, 222, 238, 0.24);
   position: relative;
-  width: auto;
-  height: auto;
-  min-height: auto;
-  margin: 0;
-  background-color: azure;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .details-button {
-  position: absolute;
-  right: 5px;
+  background-color: #007eb4;
+  color: #eaeaf1;
   bottom: 5px;
   padding: 5px 8px;
   border-radius: 4px;
@@ -141,6 +139,7 @@ input[type="text"] /*, input[type="number"]  */ {
 
 .description {
   overflow-x: hidden;
+  text-align: left;
 }
 
 .NumberOfEvents {
@@ -190,20 +189,17 @@ input[type="text"] /*, input[type="number"]  */ {
     margin: 0 auto;
   }
 }
-@media all and (max-width: 600px) {
+@media all and (max-width: 750px) {
   .EventList {
     grid-template-columns: 1fr;
   }
 }
-@media all and (min-width: 500px) and (max-width: 750px){
+@media all and (min-width: 750px) and (max-width: 1025px){
   .EventList {
     grid-template-columns: 1fr 1fr;
   }
 }
 @media all and (max-width: 750px) {
-  /* .EventList {
-    grid-gap: 10px;
-  } */
   .Event:last-child {
     grid-column: auto / auto;
     grid-row: auto / auto;

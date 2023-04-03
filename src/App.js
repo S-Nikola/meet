@@ -7,7 +7,6 @@ import NumberOfEvents from './NumberOfEvents';
 import WelcomeScreen from './WelcomeScreen';
 import EventGenre from './EventGenre';
 import { extractLocations, getEvents, checkToken, getAccessToken } from './api';
-import { mockData } from './mock-data';
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 
@@ -23,17 +22,8 @@ class App extends Component {
       numberOfEvents: 5,
       showWelcomeScreen: undefined
     }
-    // this.updateNumberOfEvents=this.updateNumberOfEvents.bind(this);
     this.updateEvents=this.updateEvents.bind(this);
   }
-
-
-  /*Function that updates the state: numberOfEvents*/
-  // updateNumberOfEvents(option) {
-  //   this.setState({
-  //     numberOfEvents: option,
-  //   });
-  // }
 
 /*Function that updates the state: events*/
   updateEvents = (location, optionNumber) => {
@@ -93,7 +83,6 @@ class App extends Component {
     }
   }
 
-
   componentWillUnmount(){
     this.mounted = false;
   }
@@ -104,7 +93,7 @@ class App extends Component {
       <div className="App">
         <h1 className='text-6xl font-extrabold m-4'>Meet App</h1>
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents}/>
-        <NumberOfEvents numberOfEvents={this.state.numberOfEvents} /*updateNumberOfEvents={this.updateNumberOfEvents}*/ updateEvents={this.updateEvents}/>
+        <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateEvents={this.updateEvents}/>
         <h4>Events in each city</h4>
         <div className='data-vis-wrapper'>
         <EventGenre events={this.state.events}/>
