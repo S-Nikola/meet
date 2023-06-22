@@ -4,7 +4,7 @@ import { mockData } from '../mock-data';
 import { loadFeature, defineFeature } from 'jest-cucumber';
 import { mount, shallow } from 'enzyme';
 import CitySearch from '../CitySearch';
-import { extractLocations, getEvents } from '../api';
+import { extractLocations } from '../api';
 
 const feature = loadFeature('./src/features/filterEventsByCity.feature');
 
